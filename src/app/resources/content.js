@@ -1,5 +1,3 @@
-import { Logo } from "@/once-ui/components";
-
 const person = {
   firstName: "Samuel",
   lastName: "Kim",
@@ -119,8 +117,9 @@ const about = {
         role: "Business Intelligence Developer",
         achievements: [
           <>
-            Built end-to-end ETL pipelines and analytical data models using
-            T-SQL and Power BI, reducing dashboard load time by 40%.
+            Developed a Tabular Cube using SSAS Tabular Project and implemented
+            pre-aggregated ETL pipelines and optimized data models, resulting in
+            a 30% improvement in Power BI dashboard performance.
           </>,
           <>
             Designed KPIs (e.g., AR/AP turnover, order-to-cash cycle) by
@@ -251,7 +250,7 @@ const about = {
         description: <>Advanced Diploma | Studied Software Development.</>,
       },
       {
-        name: "Korean Army Academy at Yeong-cheon",
+        name: "Korea Army Academy at Yeong-cheon",
         description: <>BA | Studied International Relations.</>,
       },
     ],
@@ -261,20 +260,24 @@ const about = {
     title: "Technical skills",
     skills: [
       {
-        title: "Figma",
+        title: "SSAS Tabular",
         description: (
-          <>Able to prototype in Figma with Once UI with unnatural speed.</>
+          <>
+            Built enterprise-grade Tabular Cubes using SSAS Tabular Project to
+            support fast and scalable data models for Power BI.
+          </>
         ),
+
         // optional: leave the array empty if you don't want to display images
         images: [
           {
-            src: "/images/projects/project-01/cover-02.jpg",
+            src: "/images/projects/portfolio/ssas_logo.png",
             alt: "Project image",
             width: 16,
             height: 9,
           },
           {
-            src: "/images/projects/project-01/cover-03.jpg",
+            src: "/images/projects/portfolio/ssas_logo_01.png",
             alt: "Project image",
             width: 16,
             height: 9,
@@ -282,10 +285,98 @@ const about = {
         ],
       },
       {
-        title: "Next.js",
+        title: "Power BI Desktop",
         description: (
-          <>Building next gen apps with Next.js + Once UI + Supabase.</>
+          <>
+            Developed interactive dashboards and analytical reports in Power BI
+            Desktop, optimizing performance and delivering business insights.
+          </>
         ),
+
+        // optional: leave the array empty if you don't want to display images
+        images: [
+          {
+            src: "/images/projects/portfolio/powerbi_logo.jpeg",
+            alt: "Project image",
+            width: 16,
+            height: 9,
+          },
+        ],
+      },
+      {
+        title: "Power BI Report Builder",
+        description: (
+          <>
+            Created paginated reports using Power BI Report Builder for
+            print-ready formats and detailed operational reporting needs.
+          </>
+        ),
+
+        // optional: leave the array empty if you don't want to display images
+        images: [
+          {
+            src: "/images/projects/portfolio/powerbiReportbuilder.jpg",
+            alt: "Project image",
+            width: 16,
+            height: 9,
+          },
+        ],
+      },
+      {
+        title: "DAX",
+        description: (
+          <>
+            Wrote advanced DAX measures, calculated columns, and calculated
+            tables to implement complex business logic, KPIs, and time
+            intelligence in Power BI reports.
+          </>
+        ),
+
+        // optional: leave the array empty if you don't want to display images
+        images: [
+          {
+            src: "/images/projects/portfolio/daxstudio_logo.png",
+            alt: "Project image",
+            width: 9,
+            height: 9,
+          },
+          {
+            src: "/images/projects/portfolio/daxlogo.png",
+            alt: "Project image",
+            width: 16,
+            height: 9,
+          },
+        ],
+      },
+      {
+        title: "T-SQL | PL/SQL",
+        description: (
+          <>
+            Designed and optimized complex queries, stored procedures, and ETL
+            processes using T-SQL and PL/SQL for data transformation and
+            integration.
+          </>
+        ),
+
+        // optional: leave the array empty if you don't want to display images
+        images: [
+          {
+            src: "/images/projects/portfolio/sqlLogo.png",
+            alt: "Project image",
+            width: 9,
+            height: 9,
+          },
+          {
+            src: "/images/projects/portfolio/datastudio.jpeg",
+            alt: "Project image",
+            width: 16,
+            height: 9,
+          },
+        ],
+      },
+      {
+        title: "Next.js | React.js",
+        description: <>Building next gen apps with Next.js | React.js.</>,
         // optional: leave the array empty if you don't want to display images
         images: [
           {
