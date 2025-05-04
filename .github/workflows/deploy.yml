@@ -19,12 +19,11 @@ jobs:
           node-version: "18"
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build and export
         run: |
           npm run build
-          npm run export
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
@@ -32,11 +31,6 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
-
-      - name: Build and Export Next.js
-        run: |
-          npm ci
-          npm run build
 
       - name: Sync to S3 (delete old files)
         run: |
