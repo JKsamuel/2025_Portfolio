@@ -37,7 +37,6 @@ jobs:
         run: |
           npm ci
           npm run build
-          npm run export
 
       - name: Sync to S3 (delete old files)
         run: |
