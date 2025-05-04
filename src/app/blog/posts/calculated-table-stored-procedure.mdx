@@ -1,0 +1,29 @@
+---
+title: "Calculated Table vs. Stored Procedure in Tabular Modeling — Which One Should You Use?"
+summary: "Calculated Table with DAX in Tabular Modeling vs Stored Procedure with SQL in Tabular Modeling"
+
+publishedAt: "2025-04-13"
+tag: "DAX"
+---
+
+## About
+
+Calculated Table vs. Stored Procedure in Tabular Modeling — Which One Should You Use?
+
+## Content
+
+In my previous team, It wasn’t a commonly used approach in our team back then, so I took a different route by building a calculated table in DAX — structured as a combined Fact + Dimension table — and connected it to other dimensions to build the model.I didn’t receive much formal feedback from the team, but from what I observed, it met user expectations and continues to run smoothly.
+
+That got me thinking:💭 Should I continue creating calculated tables in DAX, or would it be better to prepare the data using a SQL stored procedure or view and bring it into the model that way?
+
+## Calculated Tables (DAX)
+
+- Great for quick prototypes and self-contained models
+- Easy to create and manage within the model
+- Can be slow or memory-intensive with large datasets
+
+## Stored Procedures (SQL)
+
+- Better performance for large-scale or complex data
+- Easier to reuse across systems
+- Less flexible for quick experimentation

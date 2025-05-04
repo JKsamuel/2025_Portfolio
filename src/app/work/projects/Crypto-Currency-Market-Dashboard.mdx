@@ -1,0 +1,47 @@
+---
+title: "[Sample] Crypto Currency Market Dashboard"
+publishedAt: "2025-04-12"
+summary: "A Power BI dashboard that monitors the real-time performance of multiple cryptocurrencies and global market indices with historical price trends."
+images:
+  - "/images/projects/portfolio/cover_07.png"
+  - "/images/projects/portfolio/cryptoDashboard.gif"
+team:
+  - name: "Samuel Kim"
+    role: "Business Intelligence Developer"
+    avatar: "/images/samkim.jpg"
+    linkedIn: "https://www.linkedin.com/in/samuelkim87/"
+---
+
+## Overview
+
+This project delivers a comprehensive cryptocurrency and market index monitoring solution, leveraging a modern data architecture with Azure Data Factory and Power BI. Designed for data consumers who require trend analysis over time rather than real-time monitoring, the dashboard surfaces historical insights, price fluctuations, and performance comparisons across digital assets and global financial indices.
+
+## Key Features
+
+- Azure-Orchestrated ETL Pipeline: Used Azure Data Factory to ingest and transform external market feeds into a structured warehouse model.
+- Semantic Star Schema Modeling: Constructed well-defined Fact and Dimension tables to support fast aggregations and flexible slicer interactions.
+- Time-Based Drilldown: Enabled exploration of crypto asset performance at the hourly, daily, and monthly levels.
+- Multi-Asset Comparison: Side-by-side visualization of cryptocurrencies (e.g., DOGE, BTC, ETH) and market indices (e.g., DAX, CAC40, Dow Jones).
+- Custom KPI Cards: Created dynamic measures for open/close/high/low tracking with contextual deltas and sparkline indicators.
+
+## Technologies Used
+
+- Azure Data Factory (ADF): For orchestrating data ingestion, transformation, and loading into the data warehouse.
+- SQL Server (Azure SQL DB): As the centralized store for Fact and Dimension tables.
+- Power BI: For data modeling (DAX), dashboard design, and publishing.
+- DAX (Data Analysis Expressions): For time intelligence calculations, delta analysis, and KPI logic.
+- Power Query (M Language): For initial shaping and preprocessing of source data.
+
+## Challenges and Learnings
+
+One of the key challenges was managing the volume and granularity of time-series data without compromising dashboard responsiveness. To address this, I introduced incremental refresh policies in the Power BI service and pre-aggregated data at multiple grain levels.
+
+Additionally, crafting an intuitive user experience across asset types required flexible yet consistent visual layouts — achieved through dynamic measures, bookmarks, and responsive visuals.
+
+Another valuable insight was the importance of separating concerns through layered modeling: using ADF for raw data movement, SQL Server for business logic, and Power BI for end-user interaction.
+
+## Outcome
+
+The result is a scalable, enterprise-ready analytics solution that empowers analysts and decision-makers to monitor cryptocurrency trends in alignment with traditional market indices. Though not designed for real-time execution, the ETL-driven refresh cadence ensures reliability and consistency across reporting cycles.
+
+This project exemplifies the fusion of data engineering and BI design, emphasizing clean architecture, semantic modeling, and storytelling through data.

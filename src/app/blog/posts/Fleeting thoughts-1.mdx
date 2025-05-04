@@ -1,0 +1,70 @@
+---
+title: "Fleeting thoughts: About qty..."
+summary: "Fleeting thoughts: Fact table linked with SCD Type 2 dimension"
+publishedAt: "2025-03-17"
+tag: "DAX"
+---
+
+## Fleeting thoughts
+
+There are times when I work with fact tables that are connected to something like SCD Type 2 dimensions (_not strictly SCD Type 2, but similar in behavior_).
+
+<div
+  style={{
+    width: "100%",
+    overflow: "hidden",
+    borderRadius: "10px",
+  }}
+>
+  <img
+    src="/images/projects/portfolio/1744759670509.jpeg"
+    alt="Example image"
+    style={{ width: "100%", height: "100%", objectFit: "cover" }}
+  />
+</div>
+
+One mistake I made in the past when building a semantic model was simply using `SUM()` for measures — like `SUM([Ordered Qty])`.
+
+As a result, Ordered Qty was returning something like:
+
+[Ordered Qty] × [Number of matching dimension records] for a single order ID.
+
+Which, of course, is incorrect.
+
+To fix this, I use the following approach to ensure proper aggregation at the **Order ID + Order Line** level:
+
+<CodeBlock
+    radius="none"
+    topRadius="l"
+    codeInstances={[
+      {
+        code:
+`// Approach 1
+Ordered Qty :=
+ SUMX(
+      SUMMARIZE(
+                [TABLE],
+                [Order ID],
+                [Order Line],
+                "Qty", MAX([Ordered Qty])
+      ),
+      [Qty]
+ )
+
+// Approach 2
+Ordered Qty :=
+SUMX(
+GROUPBY(
+[TABLE],
+[Order ID],
+[Order Line],
+"qty", MAXX(CURRENTGROUP(), [Order Line])
+),
+[qty]
+)
+\`\`\``,
+language: "DAX",
+label: "CodeBlock"
+}
+]}
+/>
