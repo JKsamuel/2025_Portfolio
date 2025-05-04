@@ -1,16 +1,16 @@
 import { Logo } from "@/once-ui/components";
 
 const person = {
-  firstName: "Selene",
-  lastName: "Yu",
+  firstName: "Samuel",
+  lastName: "Kim",
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
-  role: "Design Engineer",
-  avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  role: "Business Intelligence Developer",
+  avatar: "/images/samkim.jpg",
+  email: "ghassad87@gmail.com",
+  location: "America/Toronto", // Expecting the IANA time zone identifier
+  languages: ["English", "Korean"], // optional: Leave the array empty if you don't want to display languages
 };
 
 const newsletter = {
@@ -18,8 +18,8 @@ const newsletter = {
   title: <>Subscribe to {person.firstName}'s Newsletter</>,
   description: (
     <>
-      I occasionally write about design, technology, and share thoughts on the intersection of
-      creativity and engineering.
+      I occasionally write about design, technology, and share thoughts on the
+      intersection of creativity and engineering.
     </>
   ),
 };
@@ -30,17 +30,17 @@ const social = [
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system/nextjs-starter",
+    link: "https://github.com/JKsamuel/",
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
+    link: "https://www.linkedin.com/in/samuelkim87/",
   },
   {
-    name: "X",
-    icon: "x",
-    link: "",
+    name: "Instagram",
+    icon: "instagram",
+    link: "https://www.instagram.com/jongeun_k87/",
   },
   {
     name: "Email",
@@ -55,16 +55,22 @@ const home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building bridges between design and code</>,
+  headline: <>Data drives Insight Insight shapes Strategy.</>,
   featured: {
     display: true,
-    title: <>Recent project: <strong className="ml-4">Once UI</strong></>,
+    title: (
+      <>
+        Recent project: <strong className="ml-4">Once UI</strong>
+      </>
+    ),
     href: "/work/building-once-ui-a-customizable-design-system",
   },
   subline: (
     <>
-      I'm Selene, a design engineer at <Logo icon={false} style={{ display: "inline-flex", top: "0.25em", marginLeft: "-0.25em" }}/>, where I craft intuitive
-      <br /> user experiences. After hours, I build my own projects.
+      I'm {person.firstName}, a {person.role} transforming raw data into clear
+      visual stories.
+      <br />
+      After hours, I dive into data innovations.
     </>
   ),
 };
@@ -90,69 +96,163 @@ const about = {
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        {person.name} is a {person.role} dedicated to converting raw data into
+        meaningful visual stories and strategic solutions. His expertise
+        includes data modeling, interactive dashboards, and aligning data-driven
+        insights with business goals.
+        <br />
+        <br />
+        Beyond his professional career, he is a proud father of two and a loving
+        husband. He also served as an infantry officer for 10 years in the
+        Republic of Korea Army, including distinguished roles within the Special
+        Forces and Commando units.
       </>
     ),
   },
   work: {
-    display: true, // set to false to hide this section
+    display: true,
     title: "Work Experience",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "Samuel, Son & Co.",
+        timeframe: "2023.09 - Present",
+        role: "Business Intelligence Developer",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+            Built end-to-end ETL pipelines and analytical data models using
+            T-SQL and Power BI, reducing dashboard load time by 40%.
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+            Designed KPIs (e.g., AR/AP turnover, order-to-cash cycle) by
+            analyzing ERP data, enabling insight-driven executive reporting.
+          </>,
+          <>
+            Consolidated ERP data into Azure Data Lake, ensuring scalable,
+            cross-system analytics.
           </>,
         ],
-        images: [
-          // optional: leave the array empty if you don't want to display images
-          {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
-            width: 16,
-            height: 9,
-          },
-        ],
+        images: [],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "Samuel, Son & Co.",
+        timeframe: "2023.04 – 2023.09",
+        role: "Jr. BI Developer (Co-op)",
         achievements: [
           <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
+            Migrated 30+ SSRS reports from MDX to DAX, improving report
+            performance and usability.
           </>,
           <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
+            Developed tailored dashboards in Power BI aligned with user needs
+            and KPIs.
+          </>,
+          <>
+            Completed all development tasks ahead of schedule in a fast-paced
+            agile environment.
+          </>,
+        ],
+        images: [],
+      },
+      {
+        company: "Samuel, Son & Co.",
+        timeframe: "2022.01 – 2022.08",
+        role: "IT Plant Support Analyst (Co-op)",
+        achievements: [
+          <>
+            Automated Excel-based forecasting of device replacement cycles,
+            improving visibility and control over IT asset lifecycle planning.
+          </>,
+          <>
+            Built a Windows application to analyze invoice bills and automate
+            the identification of billable users, cutting manual reporting time
+            by over 90% and significantly enhancing IT asset management.
+          </>,
+          <>
+            Resolved critical software/network issues across North America,
+            ensuring high uptime.
+          </>,
+        ],
+        images: [],
+      },
+      {
+        company: "Republic of Korea Army",
+        timeframe: "2010 – 2020",
+        role: "Army Captain (Company Commander / S1 Officer)",
+        achievements: [
+          <>
+            Commanded infantry and airborne units; led mission planning under
+            OPLAN 5027.
+          </>,
+          <>
+            Coordinated inter-agency military logistics and personnel management
+            in overseas missions.
+          </>,
+          <>
+            Initiated projects like introducing a Korean restaurant to U.S. Army
+            base via bidding process.
           </>,
         ],
         images: [],
       },
     ],
   },
+  // work: {
+  //   display: true, // set to false to hide this section
+  //   title: "Work Experience",
+  //   experiences: [
+  //     {
+  //       company: "FLY",
+  //       timeframe: "2022 - Present",
+  //       role: "Senior Design Engineer",
+  //       achievements: [
+  //         <>
+  //           Redesigned the UI/UX for the FLY platform, resulting in a 20%
+  //           increase in user engagement and 30% faster load times.
+  //         </>,
+  //         <>
+  //           Spearheaded the integration of AI tools into design workflows,
+  //           enabling designers to iterate 50% faster.
+  //         </>,
+  //       ],
+  //       images: [
+  //         // optional: leave the array empty if you don't want to display images
+  //         {
+  //           src: "/images/projects/project-01/cover-01.jpg",
+  //           alt: "Once UI Project",
+  //           width: 16,
+  //           height: 9,
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       company: "Creativ3",
+  //       timeframe: "2018 - 2022",
+  //       role: "Lead Designer",
+  //       achievements: [
+  //         <>
+  //           Developed a design system that unified the brand across multiple
+  //           platforms, improving design consistency by 40%.
+  //         </>,
+  //         <>
+  //           Led a cross-functional team to launch a new product line,
+  //           contributing to a 15% increase in overall company revenue.
+  //         </>,
+  //       ],
+  //       images: [],
+  //     },
+  //   ],
+  // },
   studies: {
     display: true, // set to false to hide this section
     title: "Studies",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
+        name: "Mowak College",
+        description: <>Advanced Diploma | Studied Software Development.</>,
       },
       {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        name: "Korean Army Academy at Yeong-cheon",
+        description: <>BA | Studied International Relations.</>,
       },
     ],
   },
@@ -162,7 +262,9 @@ const about = {
     skills: [
       {
         title: "Figma",
-        description: <>Able to prototype in Figma with Once UI with unnatural speed.</>,
+        description: (
+          <>Able to prototype in Figma with Once UI with unnatural speed.</>
+        ),
         // optional: leave the array empty if you don't want to display images
         images: [
           {
@@ -181,7 +283,9 @@ const about = {
       },
       {
         title: "Next.js",
-        description: <>Building next gen apps with Next.js + Once UI + Supabase.</>,
+        description: (
+          <>Building next gen apps with Next.js + Once UI + Supabase.</>
+        ),
         // optional: leave the array empty if you don't want to display images
         images: [
           {
