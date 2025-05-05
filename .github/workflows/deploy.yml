@@ -35,9 +35,3 @@ jobs:
       - name: Sync to S3 (delete old files)
         run: |
           aws s3 sync ./out s3://${{ secrets.S3_BUCKET_NAME }} --delete
-
-      - name: Invalidate CloudFront cache
-        run: |
-          aws cloudfront create-invalidation \
-            --distribution-id E1OGLC3RRVKIWM \
-            --paths "/*"
