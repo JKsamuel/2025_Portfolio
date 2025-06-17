@@ -432,17 +432,17 @@ const gallery = {
   // These are placeholder images, replace with your own
   images: [
     {
-      src: "/images/gallery/1.JPG",
+      src: "/images/gallery/1.jpg",
       alt: "image",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/2.JPG",
+      src: "/images/gallery/2.jpg",
       alt: "image",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/3.JPG",
+      src: "/images/gallery/3.jpg",
       alt: "image",
       orientation: "horizontal",
     },
