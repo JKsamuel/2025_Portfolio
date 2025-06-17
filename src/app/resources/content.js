@@ -65,10 +65,8 @@ const home = {
   },
   subline: (
     <>
-      I'm {person.firstName}, a {person.role} transforming raw data into clear
-      visual stories.
-      <br />
-      After hours, I dive into data innovations.
+      I'm {person.firstName}, a {person.role} who discovers the hidden value
+      behind data and turns it into actionable insights.
     </>
   ),
 };
@@ -94,16 +92,15 @@ const about = {
     title: "Introduction",
     description: (
       <>
-        {person.name} is a {person.role} dedicated to converting raw data into
-        meaningful visual stories and strategic solutions. His expertise
-        includes data modeling, interactive dashboards, and aligning data-driven
-        insights with business goals.
-        <br />
-        <br />
-        Beyond his professional career, he is a proud father of two and a loving
-        husband. He also served as an infantry officer for 10 years in the
-        Republic of Korea Army, including distinguished roles within the Special
-        Forces and Commando units.
+        I’m a Business Intelligence Developer passionate about transforming raw
+        data into meaningful visual stories and strategic solutions. My
+        expertise lies in data modeling, building interactive dashboards, and
+        aligning data-driven insights with real business objectives. Beyond my
+        professional work, I’m also a proud father of two and a loving husband.
+        Before transitioning into the tech industry, I served for 10 years as an
+        infantry officer in the Republic of Korea Army, including distinguished
+        assignments with the Special Forces and Commando units—an experience
+        that shaped my discipline, leadership, and problem-solving mindset.
       </>
     ),
   },
