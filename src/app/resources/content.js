@@ -95,12 +95,13 @@ const about = {
         I’m a Business Intelligence Developer passionate about transforming raw
         data into meaningful visual stories and strategic solutions. My
         expertise lies in data modeling, building interactive dashboards, and
-        aligning data-driven insights with real business objectives. Beyond my
-        professional work, I’m also a proud father of two and a loving husband.
-        Before transitioning into the tech industry, I served for 10 years as an
-        infantry officer in the Republic of Korea Army, including distinguished
-        assignments with the Special Forces and Commando units—an experience
-        that shaped my discipline, leadership, and problem-solving mindset.
+        aligning data-driven insights with real business objectives.
+        <br /> Beyond my professional work, I’m also a proud father of two and a
+        loving husband. Before transitioning into the tech industry, I served
+        for 10 years as an infantry officer in the Republic of Korea Army,
+        including distinguished assignments with the Special Forces and Commando
+        units—an experience that shaped my discipline, leadership, and
+        problem-solving mindset.
       </>
     ),
   },
@@ -110,21 +111,39 @@ const about = {
     experiences: [
       {
         company: "Samuel, Son & Co.",
-        timeframe: "2023.09 - Present",
+        timeframe: "2023.09 - 2025.05",
         role: "Business Intelligence Developer",
         achievements: [
           <>
-            Developed a Tabular Cube using SSAS Tabular Project and implemented
-            pre-aggregated ETL pipelines and optimized data models, resulting in
-            a 30% improvement in Power BI dashboard performance.
+            Designed and maintained a risk reporting Data Mart, using SQL and
+            Excel VBA to automate data cleansing, validation, and quality
+            control processes—significantly improving data accuracy and workflow
+            efficiency.
           </>,
           <>
-            Designed KPIs (e.g., AR/AP turnover, order-to-cash cycle) by
-            analyzing ERP data, enabling insight-driven executive reporting.
+            Developed interactive Power BI dashboards to visualize Key Risk
+            Indicators (KRIs) and performance metrics, enabling stakeholders to
+            monitor mitigation strategies in real time.
           </>,
           <>
-            Consolidated ERP data into Azure Data Lake, ensuring scalable,
-            cross-system analytics.
+            Standardized and transformed data from five ERP systems using stored
+            procedures, improving cross-system data consistency and reducing
+            reporting discrepancies.
+          </>,
+          <>
+            Modeled and optimized a Tabular Cube to enhance the accuracy of
+            On-Time Delivery KPIs, enabling advanced operational risk analysis
+            and executive-level reporting.
+          </>,
+          <>
+            Collaborated with cross-functional teams to validate data lineage
+            and ensure end-to-end traceability and reliability of risk metrics
+            used in enterprise reporting.
+          </>,
+          <>
+            Conducted large-scale data analysis using SQL and DAX, supporting
+            KRI refinement and proactive identification of potential risk
+            patterns across business units.
           </>,
         ],
         images: [],
@@ -135,12 +154,16 @@ const about = {
         role: "Jr. BI Developer (Co-op)",
         achievements: [
           <>
-            Migrated 30+ SSRS reports from MDX to DAX, improving report
-            performance and usability.
+            Migrated 30+ SSRS reports from MDX to DAX due to the transition from
+            a multidimensional to a tabular data model, delivering user-focused
+            Power BI dashboards and optimizing DAX calculations for enhanced
+            performance.
           </>,
           <>
-            Developed tailored dashboards in Power BI aligned with user needs
-            and KPIs.
+            Delivered all assigned tasks ahead of schedule by proactively
+            managing priorities using Azure DevOps Boards and ServiceNow
+            tickets, improving team efficiency and maintaining project momentum
+            in a high-pressure development environment.
           </>,
           <>
             Completed all development tasks ahead of schedule in a fast-paced
@@ -155,17 +178,11 @@ const about = {
         role: "IT Plant Support Analyst (Co-op)",
         achievements: [
           <>
-            Automated Excel-based forecasting of device replacement cycles,
-            improving visibility and control over IT asset lifecycle planning.
-          </>,
-          <>
-            Built a Windows application to analyze invoice bills and automate
-            the identification of billable users, cutting manual reporting time
-            by over 90% and significantly enhancing IT asset management.
-          </>,
-          <>
-            Resolved critical software/network issues across North America,
-            ensuring high uptime.
+            Managed inventory and warranty tracking for internal user
+            equipment—including laptops, monitors, and ERP-related devices—and
+            created a report to analyze and forecast replacement cycles based on
+            remaining warranty periods, supporting proactive budgeting and
+            reducing equipment downtime.
           </>,
         ],
         images: [],
