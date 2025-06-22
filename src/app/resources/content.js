@@ -1,10 +1,10 @@
 const person = {
-  firstName: "Samuel",
+  firstName: "Jongeun",
   lastName: "Kim",
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
-  role: "Business Intelligence Developer",
+  role: "Data analyst | Business Intelligence Developer",
   avatar: "/images/sam_kim.jpg",
   email: "ghassad87@gmail.com",
   location: "America/Toronto", // Expecting the IANA time zone identifier
@@ -431,21 +431,21 @@ const gallery = {
   // Images by https://lorant.one
   // These are placeholder images, replace with your own
   images: [
-    {
-      src: "/images/gallery/1.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/2.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/3.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
+    // {
+    //   src: "/images/gallery/1.jpg",
+    //   alt: "image",
+    //   orientation: "horizontal",
+    // },
+    // {
+    //   src: "/images/gallery/2.jpg",
+    //   alt: "image",
+    //   orientation: "horizontal",
+    // },
+    // {
+    //   src: "/images/gallery/3.jpg",
+    //   alt: "image",
+    //   orientation: "horizontal",
+    // },
     {
       src: "/images/gallery/4.jpg",
       alt: "image",
