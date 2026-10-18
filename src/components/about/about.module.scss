@@ -154,13 +154,13 @@
     .resumePage { padding-bottom:90px; }
     .resumeShell { padding: 0 20px; }
     .resumeNav { height: 58px; font-size: 11px; }
-    .resumeHero { min-height: 0; align-items: flex-start; gap: 14px; padding: 45px 0 67px; }
+    .resumeHero { min-height: 0; align-items: flex-start; flex-direction: column; gap: 14px; padding: 45px 16px 67px; }
     .resumeHero:before { inset: 24px 0 34px; border-radius: 18px; }
     .resumeRays { border-radius:18px; opacity:.4; }
     .resumeHero h1 { margin: 19px 0 12px; font-size: clamp(38px,9vw,53px); }
     .resumeHero p { font-size: 14px; line-height: 1.7; }
     .resumeEyebrow { font-size: 9px; letter-spacing: .07em; }
-    .resumePortrait { flex: 0 0 81px; padding: 4px 4px 6px; margin-top: 28px; }
+    .resumePortrait { flex: 0 0 auto; align-self: flex-end; width: 81px; padding: 4px 4px 6px; margin-top: 8px; }
     .resumePortrait img { height: 91px; }
     .resumePortrait span { font-size: 5px; letter-spacing: .04em; }
     .resumePills { gap: 6px; margin-top: 16px; }
