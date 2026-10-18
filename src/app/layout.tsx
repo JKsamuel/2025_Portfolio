@@ -3,7 +3,7 @@ import "@/once-ui/tokens/index.scss";
 
 import classNames from "classnames";
 
-import { PageFooter, PageHeader } from "@/components/PageChrome";
+import { PageHeader } from "@/components/PageChrome";
 import { baseURL, effects, style, font, home } from "@/app/resources";
 
 import { Background, Column, Flex, ThemeProvider, ToastProvider } from "@/once-ui/components";
@@ -123,7 +123,6 @@ export default async function RootLayout({ children }: RootLayoutProps) {
                 {children}
               </Flex>
             </Flex>
-            <PageFooter />
           </Column>
         </ToastProvider>
       </ThemeProvider>

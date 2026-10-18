@@ -4,6 +4,7 @@ import { Posts } from "@/components/blog/Posts";
 import { baseURL } from "@/app/resources";
 import { blog, person, newsletter } from "@/app/resources/content";
 import { Meta, Schema } from "@/once-ui/modules";
+import { Footer } from "@/components/Footer";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -17,6 +18,7 @@ export async function generateMetadata() {
 
 export default function Blog() {
   return (
+    <>
     <Column maxWidth="s">
       <Schema
         as="blog"
@@ -39,5 +41,7 @@ export default function Blog() {
       </Column>
       {/* {newsletter.display && <Mailchimp newsletter={newsletter} />} */}
     </Column>
+    <Footer />
+    </>
   );
 }
