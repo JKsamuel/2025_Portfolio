@@ -1,0 +1,16 @@
+---
+title: "DAX Filter Context Is the Report"
+summary: "Why the same measure changes by visual, slicer, and relationship—and how to reason about it."
+publishedAt: "2021-02-18"
+tag: "DAX"
+---
+
+A measure is not a value waiting in a cell. It is an instruction evaluated under the filters that reach it. A matrix row for one station, a date slicer, and a product selection all shape the filter context before the measure runs.
+
+```DAX
+Net Sales := SUM ( Sales[NetAmount] )
+```
+
+This simple measure can answer many questions because the model supplies context. When a number looks wrong, I first ask what rows are visible to the measure: which visual fields, slicers, page filters, and relationships are active? I check the grand total separately too. A total is generally a fresh evaluation over a broader context, not the sum of displayed rows.
+
+Thinking in contexts turns DAX debugging into a repeatable process. Start with the model and the filters, then inspect the expression. SQLBI's introduction to [filter context](https://www.sqlbi.com/articles/filter-context-in-dax/) is a useful companion for this mental model.

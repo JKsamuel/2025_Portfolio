@@ -1,0 +1,12 @@
+---
+title: "Keep Raw Data So a Pipeline Can Be Replayed"
+summary: "An immutable source copy can turn a transient integration failure into a recoverable run."
+publishedAt: "2023-12-17"
+tag: "Azure Data Lake"
+---
+
+When a source system changes or a transformation has a bug, retaining the original payload gives the team another option besides asking the provider to resend the data. ADLS Gen2 is useful for keeping those raw files in a controlled, organized path.
+
+The path should make source, date, and run identity understandable. A manifest can record the file name, checksum, ingestion time, and processing state. Replay then reads the preserved source and applies a corrected transformation, while idempotency controls prevent duplicate downstream effects.
+
+Raw storage is not a substitute for retention rules, access control, or cleanup. Some payloads contain sensitive information and need restricted access and a defined lifecycle. Keep only what supports recovery, audit, or a legitimate analytical need, and document how long it remains available.

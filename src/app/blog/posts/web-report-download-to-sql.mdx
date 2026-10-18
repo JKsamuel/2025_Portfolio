@@ -1,0 +1,12 @@
+---
+title: "Turning a Browser Download Into a Governed SQL Load"
+summary: "Automated report collection needs a validation and lineage path from the downloaded file to SQL."
+publishedAt: "2025-11-30"
+tag: "Web Crawling"
+---
+
+Some business sources expose data only through a web report workflow. A browser automation can select the requested period, download an Excel file, and upload it to ADLS—but the file still needs to pass a contract before it becomes trusted SQL data.
+
+For a report-ingestion pipeline, I validate that the workbook opens, required columns exist, dates and identifiers parse, and the selected period matches the request. I retain the original export and record the load outcome. A transformation should fail loudly on an unexpected layout change instead of loading a shifted column under the old name.
+
+This separation gives us a practical replay path: source export, normalized file, and SQL load can each be inspected. It also makes browser-specific failures easier to distinguish from data-quality failures. Keep credentials out of scripts and respect the source's permitted access pattern.

@@ -1,0 +1,12 @@
+---
+title: "Data Quality Monitoring Should Detect Change, Not Noise"
+summary: "Useful alerts connect a measurable expectation to an owner and a response."
+publishedAt: "2026-07-22"
+tag: "Monitoring"
+---
+
+An alert that fires every time a source varies slightly will be ignored. A useful data-quality monitor checks a business expectation: a feed should arrive by a certain time, keys should be unique at the declared grain, a required field should not disappear, and a refresh should finish before consumers need the result.
+
+Thresholds should reflect normal variation and operational impact. Compare the current run with an appropriate baseline, include the source and pipeline stage, and give the on-call owner a next diagnostic step. Separate warnings from failures so an unusual but usable run is not confused with corrupted data.
+
+Monitoring also needs an audit trail: what was checked, which version of the rule ran, and what action followed. This closes the loop between data contracts and operations. The aim is earlier detection with fewer ambiguous pages—not a dashboard full of green lights.

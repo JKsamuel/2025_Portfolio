@@ -1,102 +1,59 @@
+import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import { FiArrowLeft, FiArrowUpRight } from "react-icons/fi";
 import { CustomMDX } from "@/components/mdx";
 import { getPosts } from "@/app/utils/utils";
-import { AvatarGroup, Button, Column, Flex, Heading, SmartImage, Text } from "@/once-ui/components";
-import { baseURL } from "@/app/resources";
-import { about, person, work } from "@/app/resources/content";
-import { formatDate } from "@/app/utils/formatDate";
-import ScrollToHash from "@/components/ScrollToHash";
-import { Metadata } from "next";
+import { baseURL, about, person, work } from "@/app/resources";
 import { Meta, Schema } from "@/once-ui/modules";
+import styles from "./project.module.scss";
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  const posts = getPosts(["src", "app", "work", "projects"]);
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
+  return getPosts(["src", "app", "work", "projects"]).map((post) => ({ slug: post.slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string | string[] }>;
-}): Promise<Metadata> {
-  const routeParams = await params;
-  const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
+type RouteParams = { params: Promise<{ slug: string | string[] }> };
+async function findPost(params: RouteParams["params"]) {
+  const route = await params;
+  const slug = Array.isArray(route.slug) ? route.slug.join("/") : route.slug || "";
+  return getPosts(["src", "app", "work", "projects"]).find((post) => post.slug === slug);
+}
 
-  const posts = getPosts(["src", "app", "work", "projects"])
-  let post = posts.find((post) => post.slug === slugPath);
-
+export async function generateMetadata({ params }: RouteParams): Promise<Metadata> {
+  const post = await findPost(params);
   if (!post) return {};
-
   return Meta.generate({
-    title: post.metadata.title,
+    title: `${post.metadata.title} – ${person.name}`,
     description: post.metadata.summary,
-    baseURL: baseURL,
-    image: post.metadata.image ? `${baseURL}${post.metadata.image}` : `${baseURL}/og?title=${post.metadata.title}`,
+    baseURL,
+    image: post.metadata.image ? `${baseURL}${post.metadata.image}` : `${baseURL}/og?title=${encodeURIComponent(post.metadata.title)}`,
     path: `${work.path}/${post.slug}`,
   });
 }
 
-export default async function Project({
-  params
-}: { params: Promise<{ slug: string | string[] }> }) {
-  const routeParams = await params;
-  const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join('/') : routeParams.slug || '';
-
-  let post = getPosts(["src", "app", "work", "projects"]).find((post) => post.slug === slugPath);
-
-  if (!post) {
-    notFound();
-  }
-
-  const avatars =
-    post.metadata.team?.map((person) => ({
-      src: person.avatar,
-    })) || [];
+export default async function Project({ params }: RouteParams) {
+  const post = await findPost(params);
+  if (!post) notFound();
+  const images: string[] = post.metadata.images ?? [];
 
   return (
-    <Column as="section" maxWidth="m" horizontal="center" gap="l">
-      <Schema
-        as="blogPosting"
-        baseURL={baseURL}
-        path={`${work.path}/${post.slug}`}
-        title={post.metadata.title}
-        description={post.metadata.summary}
-        datePublished={post.metadata.publishedAt}
-        dateModified={post.metadata.publishedAt}
-        image={`${baseURL}/og?title=${encodeURIComponent(post.metadata.title)}`}
-        author={{
-          name: person.name,
-          url: `${baseURL}${about.path}`,
-          image: `${baseURL}${person.avatar}`,
-        }}
-      />
-      <Column maxWidth="xs" gap="16">
-        <Button data-border="rounded" href="/work" variant="tertiary" weight="default" size="s" prefixIcon="chevronLeft">
-          Projects
-        </Button>
-        <Heading variant="display-strong-s">{post.metadata.title}</Heading>
-      </Column>
-      {post.metadata.images.length > 0 && (
-        <SmartImage
-          priority
-          aspectRatio="16 / 9"
-          radius="m"
-          alt="image"
-          src={post.metadata.images[0]}
-        />
-      )}
-      <Column style={{ margin: "auto" }} as="article" maxWidth="xs">
-        <Flex gap="12" marginBottom="24" vertical="center">
-          {post.metadata.team && <AvatarGroup reverse avatars={avatars} size="m" />}
-          <Text variant="body-default-s" onBackground="neutral-weak">
-            {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
-          </Text>
-        </Flex>
-        <CustomMDX source={post.content} />
-      </Column>
-      <ScrollToHash />
-    </Column>
+    <main className={styles.page}>
+      <div className={styles.shell}>
+        <Schema as="blogPosting" baseURL={baseURL} path={`${work.path}/${post.slug}`} title={post.metadata.title} description={post.metadata.summary} datePublished={post.metadata.publishedAt} dateModified={post.metadata.publishedAt} image={`${baseURL}/og?title=${encodeURIComponent(post.metadata.title)}`} author={{ name: person.name, url: `${baseURL}${about.path}`, image: `${baseURL}${person.avatar}` }} />
+        <header className={styles.hero}>
+          <span className={styles.kicker}>CASE STUDY <i /> {new Date(`${post.metadata.publishedAt}T00:00:00`).getFullYear()}</span>
+          <h1>{post.metadata.title}</h1>
+          <p>{post.metadata.summary}</p>
+          <Link href="/work/" className={styles.back}><FiArrowLeft aria-hidden="true" /> Back to selected work</Link>
+        </header>
+        {images.length > 0 && <section className={styles.visuals} aria-label="Project images">
+          <div className={styles.cover}><Image src={images[0]} alt={`${post.metadata.title} preview`} fill sizes="(max-width: 760px) 100vw, 1100px" priority unoptimized /></div>
+          {images.length > 1 && <div className={styles.supporting}>{images.slice(1).map((image, index) => <div className={styles.supportImage} key={image}><Image src={image} alt={`${post.metadata.title}, additional view ${index + 1}`} fill sizes="(max-width: 760px) 100vw, 550px" unoptimized /></div>)}</div>}
+        </section>}
+        <section className={styles.story} aria-label="Case study details"><aside><span>THE STORY</span><i />{post.metadata.team?.[0]?.role ?? "Data & Analytics"}</aside><article className={styles.prose}><CustomMDX source={post.content} /></article></section>
+        <footer className={styles.footer}><Link href="/work/"><FiArrowLeft aria-hidden="true" /> All projects</Link><Link href="/about">About Me <FiArrowUpRight aria-hidden="true" /></Link></footer>
+      </div>
+    </main>
   );
 }

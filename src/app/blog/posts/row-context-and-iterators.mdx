@@ -1,0 +1,17 @@
+---
+title: "Row Context, Iterators, and the Current Row"
+summary: "A practical way to distinguish row-by-row calculations from filters applied to a model."
+publishedAt: "2021-07-09"
+tag: "DAX"
+---
+
+`SUMX` is not just a longer `SUM`. It iterates a table and evaluates an expression for each row before aggregating the results.
+
+```DAX
+Gross Profit :=
+SUMX ( Sales, Sales[Quantity] * Sales[UnitPrice] - Sales[Cost] )
+```
+
+Inside the iterator, the current row makes each column reference meaningful. Outside that iteration, a measure normally sees a filter context instead. Confusing the two often leads to formulas that work in one visual and fail in another.
+
+When a calculation repeats a grain such as order and line, identify that grain explicitly before writing the measure. If source rows can duplicate a line, `SUMX` over raw rows may faithfully multiply the problem. First define the intended set of rows, then calculate over it. SQLBI's [row and filter context overview](https://www.sqlbi.com/articles/row-context-and-filter-context-in-dax/) explains the distinction in depth.

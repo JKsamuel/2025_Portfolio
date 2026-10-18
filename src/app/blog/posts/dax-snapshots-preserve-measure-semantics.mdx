@@ -1,0 +1,12 @@
+---
+title: "Snapshotting DAX Results Without Changing Their Meaning"
+summary: "Ratios, distinct counts, and time comparisons cannot always be rebuilt by summing stored rows."
+publishedAt: "2025-08-24"
+tag: "DAX"
+---
+
+Caching analytical results can improve response time, but a snapshot must preserve the measure's semantics. A ratio is not additive: averaging daily percentages may not equal the period percentage. A distinct count can overlap across days. Year-over-year logic depends on matched date ranges.
+
+When publishing snapshots for station analytics, store the query scope and refresh generation alongside the values. Reuse a snapshot only when its dimensions, date range, and source refresh match the request. Keep the original measure definition as the authority and compare snapshot output with direct evaluation during validation.
+
+The optimization boundary should be visible. If the query shape is not represented in the snapshot catalog, compute it or return a clear unsupported result rather than approximating silently. Fast numbers are useful only when they still mean what the report says they mean.

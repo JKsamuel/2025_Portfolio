@@ -1,0 +1,12 @@
+---
+title: "Tune SQL by Measuring the Actual Workload"
+summary: "Use query plans and workload evidence before adding indexes or rewriting transformations."
+publishedAt: "2026-01-22"
+tag: "SQL Server"
+---
+
+When a SQL transformation is slow, I start with evidence: the actual execution plan, rows estimated versus returned, expensive scans or sorts, and the time spent waiting on resources. An index that helps one query can increase write cost or compete with another workload.
+
+I also check whether the query is doing unnecessary work. Are predicates sargable? Are we converting a key in the join? Is an intermediate table being scanned repeatedly? Can an upstream filter reduce the rows without changing business meaning?
+
+After a change, compare representative parameters and result counts—not just one warm-cache stopwatch. Data distribution changes, so performance review is an ongoing operational habit. The goal is predictable response time and safe throughput, supported by measurements that another engineer can reproduce.

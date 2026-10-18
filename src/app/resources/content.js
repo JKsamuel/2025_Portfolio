@@ -4,16 +4,17 @@ const person = {
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
-  role: "Data analyst | Business Intelligence Developer",
+  role: "Data Engineer & Analyst",
   avatar: "/images/sam_kim.jpg",
   email: "ghassad87@gmail.com",
-  location: "America/Toronto", // Expecting the IANA time zone identifier
+  location: "Ancaster, Ontario",
+  timeZone: "America/Toronto",
   languages: ["English", "Korean"], // optional: Leave the array empty if you don't want to display languages
 };
 
 const newsletter = {
   display: true,
-  title: <>Subscribe to {person.firstName}'s Newsletter</>,
+  title: <>Subscribe to {person.firstName}’s Newsletter</>,
   description: (
     <>
       I occasionally write about design, technology, and share thoughts on the
@@ -51,9 +52,9 @@ const home = {
   path: "/",
   image: "/images/og/home.jpg",
   label: "Home",
-  title: `${person.name}'s Portfolio`,
-  description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Data drives Insight Insight shapes Strategy.</>,
+  title: `${person.name} | Data Engineer & Analyst`,
+  description: "Samuel Kim is a data engineer and analyst building reliable data platforms, analytics, and reporting systems.",
+  headline: <>Make the data make sense.</>,
   featured: {
     display: true,
     title: (
@@ -65,15 +66,15 @@ const home = {
   },
   subline: (
     <>
-      I'm {person.firstName}, a {person.role} who discovers the hidden value
-      behind data and turns it into actionable insights.
+      I’m {person.firstName}, a {person.role} who builds trusted data systems
+      and turns operational complexity into useful insight.
     </>
   ),
 };
 
 const about = {
   path: "/about",
-  label: "About",
+    label: "About Me",
   title: `About – ${person.name}`,
   description: `Meet ${person.name}, ${person.role} from ${person.location}`,
   tableOfContent: {
@@ -92,16 +93,14 @@ const about = {
     title: "Introduction",
     description: (
       <>
-        I’m a Business Intelligence Developer passionate about transforming raw
-        data into meaningful visual stories and strategic solutions. My
-        expertise lies in data modeling, building interactive dashboards, and
-        aligning data-driven insights with real business objectives.
-        <br /> Beyond my professional work, I’m also a proud father of two and a
-        loving husband. Before transitioning into the tech industry, I served
-        for 10 years as an infantry officer in the Republic of Korea Army,
-        including distinguished assignments with the Special Forces and Commando
-        units—an experience that shaped my discipline, leadership, and
-        problem-solving mindset.
+        I build dependable data platforms and reporting systems that help people
+        make decisions with confidence. My work spans the full path from data
+        ingestion and quality checks to warehouse models, operational analytics,
+        and the dashboards people rely on.
+        <br /> Before moving into technology, I served ten years as an infantry
+        officer in the Republic of Korea Army. That experience still shapes how
+        I work: take responsibility, communicate clearly, and stay steady when
+        the problem is complex and the stakes are real.
       </>
     ),
   },
@@ -110,16 +109,50 @@ const about = {
     title: "Work Experience",
     experiences: [
       {
-        company: "Samuel, Son & Co.",
-        timeframe: "2023.09 - 2025.05",
-        role: "Business Intelligence Developer",
+        company: "GPMC Holdings / Gen7Fuel",
+        timeframe: "2025.09 – Present",
+        role: "BI & Database Developer | Data Engineer & Analyst",
         achievements: [
           <>
-            Designed and maintained a risk reporting Data Mart, using SQL and
-            Excel VBA to automate data cleansing, validation, and quality
-            control processes—significantly improving data accuracy and workflow
-            efficiency.
+            Established the cloud data foundation behind Gen7’s employee-facing
+            DataCentre with SQL Server, Azure Synapse Analytics, ADLS Gen2,
+            Python, Docker, and scheduled Azure Container Apps Jobs.
           </>,
+          <>
+            Connected supplier pricing, POS journals, fuel sales, inventory,
+            and external APIs with automated ingestion, reconciliation, and
+            quality checks, organized from raw to reporting-ready data layers.
+          </>,
+          <>
+            Automated tomorrow’s fuel-pricing workflow from supplier email
+            ingestion and SQL processing through semantic-model refresh,
+            paginated report generation, and delivery.
+          </>,
+          <>
+            Built DataCentre business analysis tools with adjustable metric
+            weighting and Esri location data, helping teams explore business
+            questions with a consistent, data-led view.
+          </>,
+          <>
+            Developed station analytics experiences for employees and external
+            partners with station-scoped access, and published Power BI, SSRS,
+            and SSAS reporting for pricing, margins, inventory, and station
+            performance.
+          </>,
+          <>
+            Built pipeline monitoring and audit workflows across SQL ETL
+            execution and Power BI refresh health; paired them with SQL
+            performance tuning and alerts for stale rack prices or missing
+            supplier feeds.
+          </>,
+        ],
+        images: [],
+      },
+      {
+        company: "Samuel, Son & Co.",
+        timeframe: "2023.12 – 2025.05",
+        role: "Business Intelligence Developer",
+        achievements: [
           <>
             Developed interactive Power BI dashboards to visualize Key Risk
             Indicators (KRIs) and performance metrics, enabling stakeholders to
@@ -260,11 +293,11 @@ const about = {
     title: "Studies",
     institutions: [
       {
-        name: "Mowak College",
+        name: "Mohawk College",
         description: <>Advanced Diploma | Studied Software Development.</>,
       },
       {
-        name: "Korea Army Academy at Yeong-cheon",
+        name: "Korean Army Academy",
         description: <>BA | Studied International Relations.</>,
       },
     ],

@@ -1,0 +1,40 @@
+---
+title: "Gen7 DataCentre — A Shared Platform for Data and Decisions"
+publishedAt: "2026-10-17"
+summary: "Building the data foundation and analytics experiences that help Gen7 teams find, understand, and use operational data."
+images:
+  - "/images/projects/datacentre-platform.svg"
+team:
+  - name: "Samuel Kim"
+    role: "Data Engineer & Analyst"
+    avatar: "/images/sam_kim.jpg"
+    linkedIn: "https://www.linkedin.com/in/samuelkim87/"
+---
+
+## The platform behind the portal
+
+The Gen7 DataCentre is an employee-facing place to share business and operational data. My work spans the data foundation behind those experiences: connecting operational sources, shaping them into dependable datasets, and supporting analytics people can use in day-to-day decisions.
+
+This case study focuses on the engineering and analytics system behind the DataCentre, rather than presenting a login screen as if it were the signed-in product. The image above is a conceptual map of the platform flow, not a screenshot or a live inventory of production resources.
+
+## From source systems to useful data
+
+The data environment brings together sources such as supplier pricing, point-of-sale journals, fuel sales, inventory, and external APIs. Azure services—including SQL Server, Synapse Analytics, ADLS Gen2, Python, and scheduled container jobs—support ingestion, transformation, and delivery into reporting experiences.
+
+The design emphasizes clear boundaries between raw source evidence, validated and standardized data, and reporting-ready outputs. Reconciliation and quality checks help identify missing or inconsistent inputs before they become trusted metrics. Preserving source evidence also makes investigation and replay more practical when a provider changes a file or a transformation needs correction.
+
+## Analytics that support decisions
+
+DataCentre analysis tools bring business indicators into a shared experience. One example uses adjustable metric weighting with location data, allowing a user to explore how assumptions affect a comparison instead of relying on a hidden fixed score. The underlying measures remain visible so the result can prompt investigation rather than replace judgment.
+
+Station analytics extend data access to employee and approved external audiences. Access is scoped by station assignments at the API boundary, while published analytics snapshots can serve validated results efficiently. The same business definitions must hold whether a result is computed live or served from a snapshot.
+
+## Reliability is part of the product
+
+Useful analytics depend on reliable operations. I have built monitoring and audit workflows across SQL ETL execution and Power BI refresh health, alongside checks for stale prices and missing supplier feeds. Status and freshness help users understand whether data is ready; restricted diagnostic details help operators investigate failures safely.
+
+The outcome is a connected practice: engineer the pipelines, define and validate the metrics, monitor the system, and make the resulting data accessible to the teams who need it.
+
+## Explore
+
+[Open the Gen7 DataCentre](https://datacentre.gen7fuel.com/) — sign-in is required for the platform.

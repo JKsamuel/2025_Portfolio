@@ -1,5 +1,5 @@
-// IMPORTANT: Replace with your own domain address - it's used for SEO in meta tags and schema
-const baseURL = "https://demo.magic-portfolio.com";
+// Canonical site URL used for search metadata and social previews.
+const baseURL = "https://samuel-jongeunkim.com";
 
 const routes = {
   "/": true,
