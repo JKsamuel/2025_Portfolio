@@ -1,0 +1,25 @@
+---
+title: "A Grain-Safe DAX Pattern for Repeated Order Lines"
+summary: "When source rows repeat a business line, make the intended aggregation grain explicit."
+publishedAt: "2023-01-26"
+tag: "DAX"
+---
+
+I have encountered fact-like data where the reporting quantity belongs to an order-line grain but multiple source rows exist for that line. A plain `SUM` then counts the quantity repeatedly. The right fix starts by confirming why those rows repeat and which value represents the line.
+
+One possible pattern, after validating that `MAX` is the correct line-level rule, is:
+
+```DAX
+Ordered Quantity :=
+SUMX (
+    SUMMARIZE (
+        OrderRows,
+        OrderRows[OrderId],
+        OrderRows[OrderLine],
+        "LineQuantity", MAX ( OrderRows[Quantity] )
+    ),
+    [LineQuantity]
+)
+```
+
+This is not a universal deduplication recipe. If repeated rows are legitimate adjustments, choosing `MAX` would be wrong. Test a few order lines against the source system and document the grain and rule. For larger models, it may be better to resolve the grain upstream in SQL so every report shares the same contract.

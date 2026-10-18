@@ -1,0 +1,19 @@
+---
+title: "Find the Grain Before You Aggregate"
+summary: "Many reporting errors begin as a mismatch between row meaning and aggregation."
+publishedAt: "2022-01-14"
+tag: "SQL"
+---
+
+Before writing `SUM`, I want to know what one row represents. Is it an order line, a daily station snapshot, an invoice adjustment, or a repeated copy of a source record? The answer determines which joins and aggregations are valid.
+
+```sql
+SELECT OrderId, OrderLine, COUNT(*) AS row_count
+FROM dbo.OrderDetail
+GROUP BY OrderId, OrderLine
+HAVING COUNT(*) > 1;
+```
+
+This kind of check does not prove duplicates are wrong; it identifies where the business key needs explanation. A source may legitimately contain revisions or multiple status events. In that case the query needs a selection rule, not a blind `DISTINCT`.
+
+Document the grain next to the table contract and validate it during ingestion. It makes SQL joins easier to review and gives semantic-model measures a stable foundation. The most useful optimization is often correcting the question the query is answering.

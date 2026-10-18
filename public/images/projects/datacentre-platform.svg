@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 1000" fill="none">
+  <defs>
+    <style>@media (prefers-reduced-motion: reduce) { .moving-dots { display: none; } }</style>
+    <linearGradient id="bg" x1="70" y1="42" x2="1340" y2="970" gradientUnits="userSpaceOnUse"><stop stop-color="#14252B"/><stop offset=".52" stop-color="#0C151C"/><stop offset="1" stop-color="#101B22"/></linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#D8FFF0" stop-opacity=".14"/><stop offset="1" stop-color="#A4D8D0" stop-opacity=".025"/></linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#6FE0BE" stop-opacity=".15"/><stop offset=".5" stop-color="#7DE8CA"/><stop offset="1" stop-color="#91BBFF" stop-opacity=".68"/></linearGradient>
+    <radialGradient id="aura"><stop stop-color="#46CAA4" stop-opacity=".2"/><stop offset="1" stop-color="#46CAA4" stop-opacity="0"/></radialGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="22"/></filter>
+    <filter id="glow" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="9"/></filter>
+    <pattern id="grid" width="38" height="38" patternUnits="userSpaceOnUse"><path d="M38 0H0V38" stroke="#B9EEE0" stroke-opacity=".045"/></pattern>
+  </defs>
+  <rect width="1440" height="1000" rx="28" fill="url(#bg)"/>
+  <rect width="1440" height="1000" rx="28" fill="url(#grid)"/>
+  <ellipse cx="1125" cy="275" rx="420" ry="360" fill="url(#aura)"/>
+  <ellipse cx="337" cy="810" rx="390" ry="290" fill="url(#aura)" opacity=".56"/>
+  <rect x="36" y="34" width="1368" height="932" rx="24" stroke="#D3F5E9" stroke-opacity=".15"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="82" y="91" fill="#94E9CC" font-size="15" letter-spacing="3">GEN7 / DATA CENTRE</text>
+    <text x="82" y="148" fill="#EDF7F3" font-size="34" font-weight="500" letter-spacing="-1">From operational sources to shared decisions</text>
+    <text x="82" y="183" fill="#9AADA8" font-size="16">A conceptual view of the data platform and analytics flow</text>
+    <g transform="translate(1190 67)"><circle cx="7" cy="7" r="6" fill="#80E7C5"><animate attributeName="opacity" values="1;.45;1" dur="2.4s" repeatCount="indefinite"/></circle><text x="24" y="12" fill="#9FB5AC" font-size="12" letter-spacing="1.5">PLATFORM MAP</text></g>
+    <text x="83" y="256" fill="#7F9A91" font-size="12" letter-spacing="2">01 / SOURCES</text>
+    <text x="422" y="256" fill="#7F9A91" font-size="12" letter-spacing="2">02 / DATA FOUNDATION</text>
+    <text x="844" y="256" fill="#7F9A91" font-size="12" letter-spacing="2">03 / ANALYTICS</text>
+    <text x="1170" y="256" fill="#7F9A91" font-size="12" letter-spacing="2">04 / PEOPLE</text>
+  </g>
+  <g stroke="url(#line)" stroke-width="2" stroke-dasharray="8 12" opacity=".8">
+    <path d="M296 358H403"/><path d="M296 483H403"/><path d="M296 608H403"/><path d="M296 733H403"/>
+    <path d="M716 358H819"/><path d="M716 483H819"/><path d="M716 608H819"/><path d="M716 733H819"/>
+    <path d="M1083 400H1146"/><path d="M1083 630H1146"/>
+  </g>
+  <g fill="#88E8C7" opacity=".95" class="moving-dots">
+    <circle r="4" fill="#B4FFE6"><animateMotion dur="3.8s" repeatCount="indefinite" path="M296 358H403"/></circle>
+    <circle r="4" fill="#B4FFE6"><animateMotion dur="4.4s" repeatCount="indefinite" path="M296 483H403"/></circle>
+    <circle r="4" fill="#B4FFE6"><animateMotion dur="3.4s" repeatCount="indefinite" path="M716 608H819"/></circle>
+    <circle r="4" fill="#B4FFE6"><animateMotion dur="4.1s" repeatCount="indefinite" path="M1083 400H1146"/></circle>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <g>
+      <rect x="82" y="300" width="214" height="116" rx="17" fill="url(#glass)" stroke="#D7F5E9" stroke-opacity=".2"/>
+      <circle cx="111" cy="337" r="7" fill="#80E7C5"/><text x="132" y="342" fill="#DDECE6" font-size="15" font-weight="600">Supplier feeds</text><text x="108" y="379" fill="#8FA49C" font-size="12">Pricing · email · files</text>
+      <rect x="82" y="425" width="214" height="116" rx="17" fill="url(#glass)" stroke="#D7F5E9" stroke-opacity=".2"/>
+      <circle cx="111" cy="462" r="7" fill="#8DC7FF"/><text x="132" y="467" fill="#DDECE6" font-size="15" font-weight="600">Operations</text><text x="108" y="504" fill="#8FA49C" font-size="12">POS · sales · inventory</text>
+      <rect x="82" y="550" width="214" height="116" rx="17" fill="url(#glass)" stroke="#D7F5E9" stroke-opacity=".2"/>
+      <circle cx="111" cy="587" r="7" fill="#C7A5FF"/><text x="132" y="592" fill="#DDECE6" font-size="15" font-weight="600">External sources</text><text x="108" y="629" fill="#8FA49C" font-size="12">APIs · location data</text>
+      <rect x="82" y="675" width="214" height="116" rx="17" fill="url(#glass)" stroke="#D7F5E9" stroke-opacity=".2"/>
+      <circle cx="111" cy="712" r="7" fill="#FFC77A"/><text x="132" y="717" fill="#DDECE6" font-size="15" font-weight="600">Web reports</text><text x="108" y="754" fill="#8FA49C" font-size="12">Collected · validated</text>
+    </g>
+    <g>
+      <rect x="403" y="293" width="313" height="520" rx="22" fill="url(#glass)" stroke="#8EE6C9" stroke-opacity=".38"/>
+      <rect x="403" y="293" width="313" height="520" rx="22" fill="#0B141A" fill-opacity=".28"/>
+      <rect x="403" y="293" width="313" height="520" rx="22" stroke="#8EE6C9" stroke-opacity=".24"/>
+      <text x="437" y="343" fill="#ECF7F2" font-size="19" font-weight="600">Azure data foundation</text><text x="437" y="369" fill="#8CA49B" font-size="12">INGEST · TRANSFORM · SERVE</text>
+      <rect x="431" y="397" width="257" height="92" rx="13" fill="#93EBCB" fill-opacity=".09" stroke="#9DEDD0" stroke-opacity=".18"/><text x="452" y="430" fill="#9CEACD" font-size="11" letter-spacing="1.4">LAND / PRESERVE</text><text x="452" y="462" fill="#E5F1EC" font-size="16">ADLS Gen2 · source evidence</text>
+      <rect x="431" y="507" width="257" height="92" rx="13" fill="#86C8F6" fill-opacity=".08" stroke="#9BD2F2" stroke-opacity=".2"/><text x="452" y="540" fill="#A7D8F4" font-size="11" letter-spacing="1.4">VALIDATE / SHAPE</text><text x="452" y="572" fill="#E5F1EC" font-size="16">Synapse · Python · SQL</text>
+      <rect x="431" y="617" width="257" height="92" rx="13" fill="#BCA2FF" fill-opacity=".08" stroke="#C9B5FF" stroke-opacity=".2"/><text x="452" y="650" fill="#CDBAFF" font-size="11" letter-spacing="1.4">MODEL / DELIVER</text><text x="452" y="682" fill="#E5F1EC" font-size="16">SQL Server · semantic models</text>
+      <rect x="431" y="728" width="257" height="54" rx="12" fill="#0D171D" stroke="#BCE8D8" stroke-opacity=".11"/><text x="452" y="761" fill="#93A9A0" font-size="12">Quality checks · lineage · replay</text>
+    </g>
+    <g>
+      <rect x="819" y="316" width="264" height="164" rx="19" fill="url(#glass)" stroke="#D7F5E9" stroke-opacity=".2"/>
+      <text x="848" y="357" fill="#8FE6C7" font-size="11" letter-spacing="1.5">BUSINESS ANALYSIS</text><text x="848" y="391" fill="#EDF7F3" font-size="19" font-weight="600">Explore the drivers</text><text x="848" y="422" fill="#94A9A1" font-size="13">Weighted metrics · Esri locations</text>
+      <g transform="translate(848 443)"><rect width="42" height="5" rx="2.5" fill="#8DE2C3"/><rect x="52" width="71" height="5" rx="2.5" fill="#8DE2C3" fill-opacity=".52"/><rect x="135" width="86" height="5" rx="2.5" fill="#8DE2C3" fill-opacity=".24"/></g>
+      <rect x="819" y="504" width="264" height="164" rx="19" fill="url(#glass)" stroke="#D7F5E9" stroke-opacity=".2"/>
+      <text x="848" y="545" fill="#A7D5FF" font-size="11" letter-spacing="1.5">REPORTING</text><text x="848" y="579" fill="#EDF7F3" font-size="19" font-weight="600">Shared performance views</text><text x="848" y="610" fill="#94A9A1" font-size="13">Power BI · SSRS · SSAS</text>
+      <path d="M850 641h17v-11h-17zm27 0h17v-25h-17zm27 0h17v-18h-17zm27 0h17v-34h-17z" fill="#88DFC0" fill-opacity=".74"/>
+    </g>
+    <g>
+      <rect x="1146" y="347" width="220" height="169" rx="19" fill="url(#glass)" stroke="#D7F5E9" stroke-opacity=".2"/><circle cx="1180" cy="386" r="12" fill="#8DE2C3" fill-opacity=".17"/><path d="M1174 386h12M1180 380v12" stroke="#9DEBCF"/><text x="1172" y="434" fill="#EDF7F3" font-size="17" font-weight="600">Teams</text><text x="1172" y="462" fill="#94A9A1" font-size="12">Find · understand · act</text><text x="1172" y="488" fill="#83DDBD" font-size="10" letter-spacing="1.2">EMPLOYEE DATACENTRE</text>
+      <rect x="1146" y="550" width="220" height="169" rx="19" fill="url(#glass)" stroke="#D7F5E9" stroke-opacity=".2"/><circle cx="1180" cy="589" r="12" fill="#9CC7FF" fill-opacity=".17"/><path d="M1175 589h10M1180 584v10" stroke="#B3D5FF"/><text x="1172" y="637" fill="#EDF7F3" font-size="17" font-weight="600">Station analytics</text><text x="1172" y="665" fill="#94A9A1" font-size="12">Scoped access · snapshots</text><text x="1172" y="691" fill="#A8CCFA" font-size="10" letter-spacing="1.2">APPROVED AUDIENCES</text>
+    </g>
+    <g transform="translate(84 870)"><circle cx="7" cy="7" r="5" fill="#8DE2C3"/><text x="23" y="11" fill="#94AAA1" font-size="11" letter-spacing="1.2">QUALITY / MONITORING / AUDIT</text><path d="M284 7h59" stroke="#668278" stroke-opacity=".6"/><text x="360" y="11" fill="#758C83" font-size="11">ILLUSTRATIVE SYSTEM MAP · NO LIVE DATA</text></g>
+  </g>
+</svg>

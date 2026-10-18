@@ -1,0 +1,12 @@
+---
+title: "A Power BI Refresh Is One Step in the Data Pipeline"
+summary: "Coordinate model refreshes with upstream loads and verify completion before publishing outputs."
+publishedAt: "2024-08-02"
+tag: "Power BI"
+---
+
+Starting a semantic-model refresh does not mean the report is ready. The upstream SQL load might still be running, expected source files may be absent, or the refresh request may have failed asynchronously.
+
+In a report automation workflow, the order matters: validate the source set, load and reconcile SQL data, request the model refresh, poll for its terminal status, then export the report. If any prerequisite fails, stop before distributing a stale workbook as if it were current.
+
+This orchestration is as important as the DAX itself. Keep a run identifier and timestamps for each stage, make retries safe, and notify people with a clear state. A small end-to-end status record can answer the operational question users care about: is this report based on today's complete data?

@@ -1,0 +1,12 @@
+---
+title: "Archive Data Only After Mapping Its Consumers"
+summary: "Moving history out of a warehouse requires understanding every procedure and report that still reads it."
+publishedAt: "2026-03-11"
+tag: "Data Architecture"
+---
+
+Archiving older rows to a lake can reduce pressure on a serving database, but the migration is not simply export and delete. Stored procedures, views, reports, and downstream jobs may still depend on the staging tables.
+
+Before changing retention, inventory those dependencies and identify which objects need recent data, full history, or a point-in-time snapshot. Preserve a replayable export, reconcile row counts and key ranges, then move consumers in stages. Keep the serving contract stable where possible while the storage implementation changes underneath it.
+
+A review of a Bronze-to-ADLS approach showed why dependency mapping matters: the target SQL serving tables could remain useful even when older staging data moved to lake storage. Treat archival as a controlled migration with rollback and validation, not a one-time cleanup task.

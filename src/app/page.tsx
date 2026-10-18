@@ -1,129 +1,51 @@
-import React from "react";
-
-import {
-  Heading,
-  Flex,
-  Text,
-  Button,
-  Avatar,
-  RevealFx,
-  Column,
-  Badge,
-  Row,
-} from "@/once-ui/components";
-import { Projects } from "@/components/work/Projects";
-
-import { baseURL, routes } from "@/app/resources";
-import { home, about, person, newsletter } from "@/app/resources/content";
-import { Mailchimp } from "@/components";
-import { Posts } from "@/components/blog/Posts";
-import { Meta, Schema } from "@/once-ui/modules";
+import Link from "next/link";
+import Image from "next/image";
+import { FiArrowDownRight, FiArrowUpRight, FiBarChart2, FiDatabase, FiGithub, FiGitBranch, FiLinkedin, FiMail, FiMapPin } from "react-icons/fi";
+import { baseURL } from "@/app/resources";
+import { home, person } from "@/app/resources/content";
+import { Meta } from "@/once-ui/modules";
+import styles from "./portfolio.module.scss";
 
 export async function generateMetadata() {
-  return Meta.generate({
-    title: home.title,
-    description: home.description,
-    baseURL: baseURL,
-    path: home.path,
-  });
+  return Meta.generate({ title: home.title, description: home.description, baseURL, path: home.path, image: home.image });
 }
+
+const focusAreas = [
+  { number: "01", icon: FiDatabase, label: "Data engineering", detail: "Reliable pipelines & models" },
+  { number: "02", icon: FiBarChart2, label: "Analytics", detail: "Decisions grounded in data" },
+  { number: "03", icon: FiGitBranch, label: "Automation", detail: "Less repetition. More room to think." },
+];
 
 export default function Home() {
   return (
-    <Column maxWidth="m" gap="xl" horizontal="center">
-      <Schema
-        as="webPage"
-        baseURL={baseURL}
-        path={home.path}
-        title={home.title}
-        description={home.description}
-        image={`${baseURL}/og?title=${encodeURIComponent(home.title)}`}
-        author={{
-          name: person.name,
-          url: `${baseURL}${about.path}`,
-          image: `${baseURL}${person.avatar}`,
-        }}
-      />
-      <Column fillWidth paddingY="24" gap="m">
-        <Column maxWidth="s">
-          {/* {home.featured && (
-          <RevealFx fillWidth horizontal="start" paddingTop="16" paddingBottom="32" paddingLeft="12">
-            <Badge background="brand-alpha-weak" paddingX="12" paddingY="4" onBackground="neutral-strong" textVariant="label-default-s" arrow={false}
-              href={home.featured.href}>
-              <Row paddingY="2">{home.featured.title}</Row>
-            </Badge>
-          </RevealFx>
-          )} */}
-          <RevealFx
-            translateY="4"
-            fillWidth
-            horizontal="start"
-            paddingBottom="16"
-          >
-            <Heading wrap="balance" variant="display-strong-l">
-              {home.headline}
-            </Heading>
-          </RevealFx>
-          <RevealFx
-            translateY="8"
-            delay={0.2}
-            fillWidth
-            horizontal="start"
-            paddingBottom="32"
-          >
-            <Text
-              wrap="balance"
-              onBackground="neutral-weak"
-              variant="heading-default-xl"
-            >
-              {home.subline}
-            </Text>
-          </RevealFx>
-          <RevealFx
-            paddingTop="12"
-            delay={0.4}
-            horizontal="start"
-            paddingLeft="12"
-          >
-            <Button
-              id="about"
-              data-border="rounded"
-              href={about.path}
-              variant="secondary"
-              size="m"
-              arrowIcon
-            >
-              <Flex gap="8" vertical="center">
-                {about.avatar.display && (
-                  <Avatar
-                    style={{ marginLeft: "-0.75rem", marginRight: "0.25rem" }}
-                    src={person.avatar}
-                    size="m"
-                  />
-                )}
-                {about.title}
-              </Flex>
-            </Button>
-          </RevealFx>
-        </Column>
-      </Column>
-      <RevealFx translateY="16" delay={0.6}>
-        <Projects range={[1, 1]} />
-      </RevealFx>
-      {routes["/blog"] && (
-        <Flex fillWidth gap="24" mobileDirection="column">
-          <Flex flex={1} paddingLeft="l" paddingTop="24">
-            <Heading as="h2" variant="display-strong-xs" wrap="balance">
-              Latest from the blog
-            </Heading>
-          </Flex>
-          <Flex flex={3} paddingX="20">
-            <Posts range={[1, 2]} columns="2" />
-          </Flex>
-        </Flex>
-      )}
-      <Projects range={[2]} />
-      {/* {newsletter.display && <Mailchimp newsletter={newsletter} />} */}
-    </Column>
+    <main className={styles.page}>
+      <div className={styles.shell}>
+        <section className={styles.hero} aria-labelledby="hero-title">
+          <div className={styles.heroCopy}>
+            <div className={styles.eyebrow}><span className={styles.statusDot} /> DATA / ENGINEERING / INSIGHT <span className={styles.eyebrowIndex}>PORTFOLIO — 2026</span></div>
+            <h1 id="hero-title">Make the data<br />make <span className={styles.accentWord}>sense.</span></h1>
+            <p className={styles.intro}>I’m Samuel Kim — a data engineer and analyst who turns scattered information into systems people can trust and decisions they can act on.</p>
+            <div className={styles.heroActions}><Link className={styles.primaryAction} href="/work">Explore selected work <FiArrowUpRight aria-hidden="true" /></Link><Link className={styles.secondaryAction} href="/about">My story <FiArrowDownRight aria-hidden="true" /></Link></div>
+            <div className={styles.heroMeta}><span><FiMapPin aria-hidden="true" /> Ancaster, Ontario</span><span className={styles.metaRule} /><span>EN <span className={styles.mutedSlash}>/</span> 한국어</span></div>
+          </div>
+
+          <div className={styles.heroVisual}>
+            <div className={`${styles.orbit} ${styles.orbitOuter}`} /><div className={`${styles.orbit} ${styles.orbitInner}`} /><div className={styles.portraitGlow} />
+            <div className={styles.portraitCard}><Image src={person.avatar} alt="Samuel Kim" width={320} height={380} priority className={styles.portrait} /><div className={styles.portraitCaption}><span>JONGEUN “SAMUEL” KIM</span><span>DATA &amp; BUSINESS INTELLIGENCE</span></div></div>
+            <div className={styles.floatingBadge}><span className={styles.badgeGlyph}>↳</span><span>From question<br />to useful answer.</span></div><div className={styles.visualIndex}>FIG. 01 <span>—</span> THE INTERPRETER</div>
+          </div>
+          <a className={styles.scrollCue} href="#approach"><span className={styles.scrollLine} /> SCROLL TO EXPLORE</a>
+        </section>
+
+        <section id="approach" className={styles.approach} aria-labelledby="approach-title">
+          <div className={styles.sectionIntro}><span className={styles.sectionLabel}>WHAT I BRING</span><h2 id="approach-title">Good analysis is more than a chart.<br /><span>It’s confidence in what comes next.</span></h2></div>
+          <div className={styles.focusGrid}>{focusAreas.map(({ number, icon: Icon, label, detail }) => <article className={styles.focusCard} key={number}><div className={styles.cardTop}><span>{number} / 03</span><Icon aria-hidden="true" /></div><h3>{label}</h3><p>{detail}</p><div className={styles.cardRule} /></article>)}</div>
+          <div className={styles.principle}><span className={styles.principleMark}>“</span><p>Start with the people making the decision.<br />Work backward to the data they need.</p><span className={styles.principleByline}>A working principle</span></div>
+        </section>
+
+        <section className={styles.bottomCta} aria-label="Explore more"><div><span className={styles.sectionLabel}>A LITTLE MORE CONTEXT</span><h2>The work.<br /><span>The person behind it.</span></h2></div><div className={styles.ctaLinks}><Link href="/work">See selected projects <FiArrowUpRight aria-hidden="true" /></Link><Link href="/about">About me <FiArrowUpRight aria-hidden="true" /></Link></div></section>
+        <footer className={styles.footer}><span>© {new Date().getFullYear()} Samuel Kim <span className={styles.mutedSlash}>/</span> Built with curiosity in Ontario</span><div className={styles.footerLinks}><a href="https://github.com/JKsamuel" aria-label="GitHub"><FiGithub /></a><a href="https://www.linkedin.com/in/samuelkim87/" aria-label="LinkedIn"><FiLinkedin /></a><a href={`mailto:${person.email}`} aria-label="Email"><FiMail /></a></div></footer>
+      </div>
+    </main>
   );
 }

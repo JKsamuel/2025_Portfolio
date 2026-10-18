@@ -1,0 +1,12 @@
+---
+title: "Station Analytics Needs Access Rules at the Data Boundary"
+summary: "Scope data by audience and enforce that scope before returning analytics results."
+publishedAt: "2025-06-08"
+tag: "Analytics Engineering"
+---
+
+An analytics portal can look simple while carrying an important security contract: a user should only see the stations and measures they are authorized to access. Hiding a station in the interface is not enforcement.
+
+The server-side path should resolve the caller's assignments, validate requested station IDs against that scope, and only then query or serve a snapshot. A published snapshot can reduce repeated semantic-model work, but its key and authorization check must preserve the same boundaries as a live query.
+
+Test both permitted and denied cases, including direct API requests that bypass the page. Keep access assignments auditable and avoid returning private diagnostics to the browser. Convenience and performance matter, but neither should weaken the rule that defines who can see which data.

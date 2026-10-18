@@ -1,0 +1,22 @@
+---
+title: "Use SQL Window Functions to Make Changes Reviewable"
+summary: "Ranking and lag functions can expose sequence, revisions, and audit context."
+publishedAt: "2022-09-12"
+tag: "SQL Server"
+---
+
+For event-like data, the newest row is often a business rule. A window function makes that rule visible instead of burying it in application code.
+
+```sql
+WITH ranked AS (
+    SELECT *, ROW_NUMBER() OVER (
+        PARTITION BY EntityId ORDER BY ChangedAt DESC, EventId DESC
+    ) AS rn
+    FROM dbo.EntityHistory
+)
+SELECT * FROM ranked WHERE rn = 1;
+```
+
+The tie-breaker matters: timestamps can collide. I also preserve the history when auditability matters, and treat the latest-row query as a serving view rather than deleting prior evidence. `LAG` can compare adjacent versions to surface changed values; `SUM() OVER` can show running totals without collapsing detail.
+
+Window functions make transformation logic easier to explain in code review. They do not replace a clear key, retention policy, or source contract, but they help express temporal intent directly in SQL.

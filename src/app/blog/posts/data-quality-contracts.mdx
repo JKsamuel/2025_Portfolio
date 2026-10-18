@@ -1,0 +1,14 @@
+---
+title: "Data Quality Starts With a Contract"
+summary: "Make source assumptions testable before unreliable data reaches a report."
+publishedAt: "2023-06-21"
+tag: "Data Engineering"
+---
+
+“The file arrived” is not a quality check. A useful ingestion contract says what the file or API response should contain: expected fields, types, keys, permissible nulls, and how freshness is measured.
+
+For a daily operational feed, I would validate at least the arrival window, required identifiers, parseable dates, duplicate business keys, and basic control totals. A failed check should retain enough context to diagnose the source while preventing invalid rows from quietly becoming trusted metrics.
+
+Some records may be recoverable and others should stop the load. That distinction belongs in the contract too. Keep raw source evidence, record validation outcomes, and make a rerun safe. This creates a trail from the incoming payload to the curated table without turning every warning into an outage.
+
+Quality is not a single score. It is a set of explicit expectations attached to data that people rely on.

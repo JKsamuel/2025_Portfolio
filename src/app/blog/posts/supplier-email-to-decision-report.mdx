@@ -1,0 +1,12 @@
+---
+title: "From Supplier Email to a Decision-Ready Fuel Report"
+summary: "A dependable workflow connects message intake, SQL processing, model refresh, and report delivery."
+publishedAt: "2025-10-13"
+tag: "Automation"
+---
+
+Supplier pricing can arrive as a set of separate messages and attachments. Turning that into a next-day report requires coordinating all expected inputs before the analytics layer is refreshed.
+
+The Canco fuel-pricing workflow connects email collection, ADLS file storage, SQL loading and post-load procedures, Power BI semantic-model refresh, paginated report export, and delivery. Each stage waits for the conditions it depends on. A completion marker prevents a later notification or timer run from repeating an already completed export and email.
+
+This is a good example of data engineering serving an operational decision. The design must handle missing attachments and partial failures, preserve source evidence, and make its status visible. Report automation is not complete when the file exists; it is complete when the right inputs produced the right output and the intended audience received it.

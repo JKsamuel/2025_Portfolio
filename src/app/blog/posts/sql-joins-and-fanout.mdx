@@ -1,0 +1,20 @@
+---
+title: "Join Fan-Out: The Quiet Way Totals Become Wrong"
+summary: "Use key uniqueness and row counts to catch many-to-many surprises in SQL."
+publishedAt: "2022-05-30"
+tag: "SQL Server"
+---
+
+A join can return plausible-looking rows while silently multiplying measures. If one order line matches two reference rows, every amount on that line appears twice after the join.
+
+I check the join keys on both sides before trusting the total. Are they unique where the model expects uniqueness? Did a slowly changing dimension create multiple matching versions? Is the join predicate missing a date boundary or status condition?
+
+```sql
+SELECT d.OrderId, d.OrderLine, COUNT(*) AS matches
+FROM dbo.OrderDetail AS d
+JOIN dbo.ProductReference AS p ON p.ProductCode = d.ProductCode
+GROUP BY d.OrderId, d.OrderLine
+HAVING COUNT(*) > 1;
+```
+
+Then I compare row counts and control totals before and after the join. Fixing the key logic is safer than using `DISTINCT` to hide the symptoms. DAX also depends on relationship cardinality; SQLBI's [relationships and modeling topics](https://www.sqlbi.com/topics/modeling/) are useful when the same issue reaches a semantic model.

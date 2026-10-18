@@ -1,0 +1,12 @@
+---
+title: "Web Scraping Is an Ingestion Problem, Not Just a Browser Script"
+summary: "Reliable collection needs contracts, retries, evidence, and a clear failure state."
+publishedAt: "2024-02-11"
+tag: "Web Crawling"
+---
+
+Automating a web report download is only one step in a data pipeline. The workflow also has to select the right date or location, detect a changed page, validate the downloaded file, preserve the source, and tell downstream processing whether the run is complete.
+
+For browser-driven sources, I treat selectors and page structure as dependencies that can change. The job should fail clearly if a report is missing or the download is not a valid workbook. A successful HTTP response alone is not proof that the expected data was collected.
+
+Keep authentication outside source code, respect the site's access rules, and avoid collecting more than the business purpose requires. Store the original export before transformation so a later parser fix can be replayed. Monitoring should distinguish a source outage from a parsing regression; both need different remedies.

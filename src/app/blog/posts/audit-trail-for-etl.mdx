@@ -1,0 +1,12 @@
+---
+title: "An ETL Audit Trail Should Explain What Happened"
+summary: "Capture run identity, source evidence, row outcomes, and timing to make data operations diagnosable."
+publishedAt: "2025-01-16"
+tag: "Governance"
+---
+
+An audit table is valuable when it can answer practical questions: which source did this run use, when did it start and finish, how many records were read and written, and what failed?
+
+I prefer a stable run ID that travels through ingestion, transformation, and serving steps. Keep status transitions explicit—queued, running, completed, failed—and record counts and error categories at each boundary. For file-based inputs, store a source path or checksum rather than copying sensitive content into a general-purpose log.
+
+Access matters. Operational logs may contain SQL text, identifiers, or client details. Restrict them to the people and service identities that need them, and define retention. Good observability gives authorized operators enough evidence to diagnose and replay while keeping private data out of broad dashboards.

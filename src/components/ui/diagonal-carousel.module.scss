@@ -1,0 +1,44 @@
+.carousel { min-width: 0; }
+.stage { position: relative; height: 346px; overflow: hidden; perspective: 1100px; }
+.stage:before { content:""; position:absolute; inset:12% 6% 9% 28%; border-radius:50%; background:radial-gradient(ellipse,rgba(87,203,165,.16),transparent 68%); filter:blur(24px); }
+.card { position:absolute; top:20px; left:4%; display:flex; flex-direction:column; width:min(68%,560px); height:290px; padding:20px 22px; overflow:hidden; border:1px solid rgba(174,229,210,.3); border-radius:20px; color:#e8f1ed; background:linear-gradient(145deg,rgba(23,51,53,.91),rgba(14,25,34,.88) 65%,rgba(26,48,50,.86)); box-shadow:0 24px 65px rgba(0,0,0,.36),inset 0 1px rgba(255,255,255,.16); backdrop-filter:blur(24px); transform-origin:bottom left; }
+.card:after { content:""; position:absolute; top:-96px; right:-56px; width:220px; height:220px; border:1px solid rgba(148,232,199,.13); border-radius:50%; box-shadow:0 0 0 26px rgba(148,232,199,.025),0 0 0 52px rgba(148,232,199,.02); pointer-events:none; }
+.cardTop { display:flex; align-items:center; justify-content:space-between; color:#a9c1b9; font-size:11px; letter-spacing:.13em; }
+.live { display:inline-flex; align-items:center; gap:7px; font-size:9px; color:#9cb7ad; }
+.live i { width:6px; height:6px; border-radius:50%; background:#8ce1c3; box-shadow:0 0 10px rgba(140,225,195,.65); }
+.cardContent { position:relative; z-index:1; max-width:440px; margin:auto 0; }
+.kicker { color:#8ce1c3; font-size:10px; letter-spacing:.15em; text-transform:uppercase; }
+.card h3 { margin:8px 0 9px; font-size:clamp(24px,3vw,35px); line-height:1.1; letter-spacing:-.045em; font-weight:500; }
+.card p { max-width:420px; margin:0; color:#b4c4bf; font-size:14px; line-height:1.7; }
+.tags { display:flex; flex-wrap:wrap; gap:7px; margin-top:17px; }
+.tags span { padding:6px 9px; border:1px solid rgba(186,225,211,.17); border-radius:999px; color:#c2d2cc; background:rgba(220,255,244,.05); font-size:10px; }
+.cardIndex { position:absolute; right:18px; bottom:8px; color:rgba(161,227,201,.22); font-size:54px; font-variant-numeric:tabular-nums; font-weight:600; letter-spacing:-.08em; }
+.axis { position:absolute; right:0; bottom:18px; display:flex; align-items:center; gap:9px; color:#738680; font-size:8px; letter-spacing:.13em; }
+.axis i { width:60px; height:1px; background:linear-gradient(90deg,rgba(140,225,195,.1),rgba(140,225,195,.65)); }
+.controls { display:flex; align-items:center; gap:16px; padding:3px 2px; }
+.progress { display:flex; flex:1; align-items:center; gap:7px; }
+.progress button { display:flex; width:34px; height:22px; align-items:center; border:0; padding:0; background:transparent; cursor:pointer; }
+.progress button:after { content:""; position:absolute; width:34px; height:22px; }
+.progress button span { width:100%; height:2px; border-radius:2px; background:#8ce1c3; transform-origin:left; transition:transform .25s,opacity .25s; opacity:.9; }
+.counter { color:#a7b9b2; font-size:10px; letter-spacing:.08em; white-space:nowrap; }
+.counter i { margin:0 5px; color:#56645f; font-style:normal; }
+.arrows { display:flex; gap:7px; }
+.arrows button { display:grid; width:34px; height:34px; place-items:center; border:1px solid rgba(194,232,220,.18); border-radius:50%; color:#c9ddd4; background:rgba(212,252,238,.05); cursor:pointer; transition:background .2s,border-color .2s; }
+.arrows button:hover { border-color:rgba(140,225,195,.48); background:rgba(140,225,195,.12); }
+.note { margin:12px 0 0; color:#75837f; font-size:11px; line-height:1.6; }
+@media(max-width:600px) {
+  .stage { height:354px; }
+  .card { top:20px; left:8%; width:82%; height:300px; padding:17px 15px; border-radius:16px; }
+  .card h3 { font-size:25px; }
+  .card p { font-size:13px; }
+  .tags { gap:5px; margin-top:13px; }
+  .tags span { padding:6px 7px; font-size:9px; }
+  .cardIndex { right:12px; font-size:46px; }
+  .axis { bottom:9px; }
+  .controls { gap:8px; }
+  .progress { gap:2px; }
+  .progress button { width:24px; }
+  .progress button span { width:24px; }
+  .arrows { gap:5px; }
+}
+@media(prefers-reduced-motion:reduce) { .card { transition:none; } }

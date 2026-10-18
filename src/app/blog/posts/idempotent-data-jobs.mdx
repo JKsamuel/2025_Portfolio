@@ -1,0 +1,12 @@
+---
+title: "Design Scheduled Data Jobs to Be Safe to Run Twice"
+summary: "Retries are inevitable; idempotency keeps a retry from duplicating business outcomes."
+publishedAt: "2024-05-19"
+tag: "Data Engineering"
+---
+
+Timer jobs, mail notifications, and manual reruns can all trigger the same work more than once. A robust pipeline assumes that possibility and defines what “already processed” means.
+
+For a dated report, a deterministic output key plus a completion marker can prevent the same run from refreshing a model, exporting a report, and emailing it repeatedly. The marker should be written only after required steps succeed. If a run fails halfway through, its state should show which step can safely resume.
+
+Idempotency is not merely skipping when a file exists. The existing artifact may be incomplete or belong to a different input. Tie the run identity to the business date and source evidence, verify expected prerequisites, and make the completion condition explicit. This makes recovery calmer and operational behavior easier to explain.

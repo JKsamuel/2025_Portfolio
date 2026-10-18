@@ -1,0 +1,20 @@
+---
+title: "DAX Variables Make Measures Easier to Debug"
+summary: "Name intermediate results so the business logic reads like a small calculation."
+publishedAt: "2023-04-08"
+tag: "DAX"
+---
+
+Variables help make a measure readable, but they are most useful when each one represents a meaningful step that can be inspected.
+
+```DAX
+Margin % :=
+VAR Revenue = [Net Sales]
+VAR Cost = [Total Cost]
+RETURN
+    DIVIDE ( Revenue - Cost, Revenue )
+```
+
+If the result is unexpected, temporarily return `Revenue` or `Cost` and compare it with a known report. That isolates whether the issue is in the source measures, their filter context, or the final arithmetic. It also makes the intended denominator visible to the next person maintaining the model.
+
+Variables do not automatically make every measure faster. Their scope and evaluation context still matter, and repeated expressions should be tested in the real model. SQLBI's article on [when DAX variables are evaluated](https://www.sqlbi.com/articles/when-are-variables-evaluated-in-dax/) is a useful reminder to understand evaluation semantics rather than relying on stylistic rules.

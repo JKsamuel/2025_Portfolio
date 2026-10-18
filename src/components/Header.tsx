@@ -45,6 +45,7 @@ export default TimeDisplay;
 
 export const Header = () => {
   const pathname = usePathname() ?? "";
+  const currentPath = pathname.replace(/\/+$/, "") || "/";
 
   return (
     <>
@@ -62,7 +63,7 @@ export const Header = () => {
         data-border="rounded"
       >
         <Flex paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
-          {display.location && <Flex hide="s">{person.location}</Flex>}
+            {display.location && <Flex hide="s">{person.location}</Flex>}
         </Flex>
         <Flex fillWidth horizontal="center">
           <Flex
@@ -76,7 +77,7 @@ export const Header = () => {
           >
             <Flex gap="4" vertical="center" textVariant="body-default-s">
               {routes["/"] && (
-                <ToggleButton prefixIcon="home" href="/" selected={pathname === "/"} />
+                <ToggleButton prefixIcon="home" href="/" selected={currentPath === "/"} />
               )}
               <Line background="neutral-alpha-medium" vert maxHeight="24" />
               {routes["/about"] && (
@@ -86,13 +87,13 @@ export const Header = () => {
                     prefixIcon="person"
                     href="/about"
                     label={about.label}
-                    selected={pathname === "/about"}
+                    selected={currentPath === "/about"}
                   />
                   <ToggleButton
                     className="s-flex-show"
                     prefixIcon="person"
                     href="/about"
-                    selected={pathname === "/about"}
+                    selected={currentPath === "/about"}
                   />
                 </>
               )}
@@ -103,13 +104,13 @@ export const Header = () => {
                     prefixIcon="grid"
                     href="/work"
                     label={work.label}
-                    selected={pathname.startsWith("/work")}
+                    selected={currentPath.startsWith("/work")}
                   />
                   <ToggleButton
                     className="s-flex-show"
                     prefixIcon="grid"
                     href="/work"
-                    selected={pathname.startsWith("/work")}
+                    selected={currentPath.startsWith("/work")}
                   />
                 </>
               )}
@@ -120,13 +121,13 @@ export const Header = () => {
                     prefixIcon="book"
                     href="/blog"
                     label={blog.label}
-                    selected={pathname.startsWith("/blog")}
+                    selected={currentPath.startsWith("/blog")}
                   />
                   <ToggleButton
                     className="s-flex-show"
                     prefixIcon="book"
                     href="/blog"
-                    selected={pathname.startsWith("/blog")}
+                    selected={currentPath.startsWith("/blog")}
                   />
                 </>
               )}
@@ -137,13 +138,13 @@ export const Header = () => {
                     prefixIcon="gallery"
                     href="/gallery"
                     label={gallery.label}
-                    selected={pathname.startsWith("/gallery")}
+                    selected={currentPath.startsWith("/gallery")}
                   />
                   <ToggleButton
                     className="s-flex-show"
                     prefixIcon="gallery"
                     href="/gallery"
-                    selected={pathname.startsWith("/gallery")}
+                    selected={currentPath.startsWith("/gallery")}
                   />
                 </>
               )}
@@ -164,7 +165,7 @@ export const Header = () => {
             textVariant="body-default-s"
             gap="20"
           >
-            <Flex hide="s">{display.time && <TimeDisplay timeZone={person.location} />}</Flex>
+          <Flex hide="s">{display.time && <TimeDisplay timeZone={person.timeZone} />}</Flex>
           </Flex>
         </Flex>
       </Flex>

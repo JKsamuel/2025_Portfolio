@@ -1,0 +1,12 @@
+---
+title: "Bronze, Silver, Gold: A Practical Boundary Between Layers"
+summary: "A medallion design is useful when each layer has a clear purpose and replay path."
+publishedAt: "2023-09-04"
+tag: "Azure"
+---
+
+Layer names alone do not create a reliable platform. I use them to communicate responsibility: Bronze preserves source-shaped evidence, Silver standardizes and validates it, and Gold serves a specific analytical purpose.
+
+For example, an external report download can be retained in its original form in Bronze. A Silver transformation can normalize column names, dates, and identifiers while recording rejected rows. Gold can expose a stable table or model designed for a business question. Each step should be traceable to its inputs and safe to replay.
+
+Not every dataset needs three elaborate copies. Storage and operational cost matter, and existing consumers may depend on current tables or procedures. A migration should inventory those dependencies before changing the architecture. The layers are a tool for managing change, not a reason to move data without a consumer or recovery plan.
