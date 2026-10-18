@@ -3,8 +3,6 @@ import { person, social } from "@/app/resources/content";
 import styles from "./Footer.module.scss";
 
 export const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
   return (
     <Flex
       as="footer"
@@ -23,7 +21,7 @@ export const Footer = () => {
         vertical="center"
       >
         <Text variant="body-default-s" onBackground="neutral-strong">
-          <Text onBackground="neutral-weak">© {currentYear} /</Text>
+          <Text onBackground="neutral-weak">© 2021 /</Text>
           <Text paddingX="4">{person.name}</Text>
           <Text paddingX="4">/ Korean official name: Jongeun Kim</Text>
         </Text>

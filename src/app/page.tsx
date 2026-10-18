@@ -44,7 +44,7 @@ export default function Home() {
         </section>
 
         <section className={styles.bottomCta} aria-label="Explore more"><div><span className={styles.sectionLabel}>A LITTLE MORE CONTEXT</span><h2>The work.<br /><span>The person behind it.</span></h2></div><div className={styles.ctaLinks}><Link href="/work">See selected projects <FiArrowUpRight aria-hidden="true" /></Link><Link href="/about">About me <FiArrowUpRight aria-hidden="true" /></Link></div></section>
-        <footer className={styles.footer}><span>© {new Date().getFullYear()} Samuel Kim <span className={styles.mutedSlash}>/</span> Built with curiosity in Ontario</span><div className={styles.footerLinks}><a href="https://github.com/JKsamuel" aria-label="GitHub"><FiGithub /></a><a href="https://www.linkedin.com/in/samuelkim87/" aria-label="LinkedIn"><FiLinkedin /></a><a href={`mailto:${person.email}`} aria-label="Email"><FiMail /></a></div></footer>
+        <footer className={styles.footer}><span>© 2021 Samuel Kim <span className={styles.mutedSlash}>/</span> Built with curiosity in Ontario</span><div className={styles.footerLinks}><a href="https://github.com/JKsamuel" aria-label="GitHub"><FiGithub /></a><a href="https://www.linkedin.com/in/samuelkim87/" aria-label="LinkedIn"><FiLinkedin /></a><a href={`mailto:${person.email}`} aria-label="Email"><FiMail /></a></div></footer>
       </div>
     </main>
   );

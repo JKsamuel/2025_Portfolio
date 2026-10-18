@@ -7,6 +7,7 @@ import { formatDate } from "@/app/utils/formatDate";
 import ScrollToHash from "@/components/ScrollToHash";
 import { Metadata } from 'next';
 import { Meta, Schema } from "@/once-ui/modules";
+import { Footer } from "@/components/Footer";
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = getPosts(["src", "app", "blog", "posts"]);
@@ -55,6 +56,7 @@ export default async function Blog({
     })) || [];
 
   return (
+    <>
     <Row fillWidth>
       <Row maxWidth={12} hide="m"/>
       <Row fillWidth horizontal="center">
@@ -104,5 +106,7 @@ export default async function Blog({
       <HeadingNav fitHeight/>
     </Column>
     </Row>
+    <Footer />
+    </>
   );
 }

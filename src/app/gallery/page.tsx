@@ -3,6 +3,7 @@ import MasonryGrid from "@/components/gallery/MasonryGrid";
 import { baseURL } from "@/app/resources";
 import { gallery, person } from "@/app/resources/content";
 import { Meta, Schema } from "@/once-ui/modules";
+import { Footer } from "@/components/Footer";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -16,6 +17,7 @@ export async function generateMetadata() {
 
 export default function Gallery() {
   return (
+    <>
     <Flex maxWidth="l">
       <Schema
         as="webPage"
@@ -32,5 +34,7 @@ export default function Gallery() {
       />
       <MasonryGrid />
     </Flex>
+    <Footer />
+    </>
   );
 }
