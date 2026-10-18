@@ -35,3 +35,12 @@ jobs:
       - name: Sync to S3 (delete old files)
         run: |
           aws s3 sync ./out s3://${{ secrets.S3_BUCKET_NAME }} --delete
+
+      - name: Invalidate CloudFront cache
+        run: |
+          distribution_id=$(aws cloudfront list-distributions --query "DistributionList.Items[?Aliases.Items && contains(Aliases.Items, 'samuel-jongeunkim.com')].Id | [0]" --output text)
+          if [ -z "$distribution_id" ] || [ "$distribution_id" = "None" ]; then
+            echo "No CloudFront distribution found for samuel-jongeunkim.com"
+            exit 1
+          fi
+          aws cloudfront create-invalidation --distribution-id "$distribution_id" --paths "/*"
