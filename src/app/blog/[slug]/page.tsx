@@ -56,8 +56,8 @@ export default async function Blog({
     })) || [];
 
   return (
-    <>
-    <Row fillWidth>
+    <Column fillWidth horizontal="center">
+      <Row fillWidth>
       <Row maxWidth={12} hide="m"/>
       <Row fillWidth horizontal="center">
         <Column as="section" maxWidth="xs" gap="l">
@@ -106,7 +106,7 @@ export default async function Blog({
       <HeadingNav fitHeight/>
     </Column>
     </Row>
-    <Footer />
-    </>
+      <Footer />
+    </Column>
   );
 }

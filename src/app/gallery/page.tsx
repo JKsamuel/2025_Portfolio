@@ -1,4 +1,4 @@
-import { Flex } from "@/once-ui/components";
+import { Column, Flex } from "@/once-ui/components";
 import MasonryGrid from "@/components/gallery/MasonryGrid";
 import { baseURL } from "@/app/resources";
 import { gallery, person } from "@/app/resources/content";
@@ -17,24 +17,24 @@ export async function generateMetadata() {
 
 export default function Gallery() {
   return (
-    <>
-    <Flex maxWidth="l">
-      <Schema
-        as="webPage"
-        baseURL={baseURL}
-        title={gallery.title}
-        description={gallery.description}
-        path={gallery.path}
-        image={`${baseURL}/og?title=${encodeURIComponent(gallery.title)}`}
-        author={{
-          name: person.name,
-          url: `${baseURL}${gallery.path}`,
-          image: `${baseURL}${person.avatar}`,
-        }}
-      />
-      <MasonryGrid />
-    </Flex>
-    <Footer />
-    </>
+    <Column fillWidth horizontal="center">
+      <Flex maxWidth="l">
+        <Schema
+          as="webPage"
+          baseURL={baseURL}
+          title={gallery.title}
+          description={gallery.description}
+          path={gallery.path}
+          image={`${baseURL}/og?title=${encodeURIComponent(gallery.title)}`}
+          author={{
+            name: person.name,
+            url: `${baseURL}${gallery.path}`,
+            image: `${baseURL}${person.avatar}`,
+          }}
+        />
+        <MasonryGrid />
+      </Flex>
+      <Footer />
+    </Column>
   );
 }
